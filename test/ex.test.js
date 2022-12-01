@@ -14,7 +14,7 @@ describe("Closures tests cases", () => {
     expect(addByThree(1)).toBe(4);
   });
 
-  test.only("exercise 2: Match Action", async () => {
+  test("exercise 2: Match Action", async () => {
     const data = await fs.readFile("./ex-2.js");
     const code = `${data} return matchAction`;
 
