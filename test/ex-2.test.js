@@ -1,31 +1,20 @@
-// import fs from "fs/promises";
+import fs from "fs/promises";
 
-// describe("Closures tests cases", () => {
-//   test("exercise 1: Add By X", async () => {
-//     const data = await fs.readFile("./ex-1.js");
-//     const code = `${data} return addByX`;
+describe("exercise 2: Closures tests cases", () => {
 
-//     const func = new Function(code);
-//     const addByX = func();
-//     const addByTwo = addByX(2);
-//     const addByThree = addByX(3);
+  test("เมื่อ console.log แล้วต้องแสดงผลตามที่โจทย์กำหนด", async () => {
+    const data = await fs.readFile("./ex-2.js");
+    const code = `${data} \n return {addByTwo, subtractByThree}`;
 
-//     expect(addByTwo(1)).toBe(3);
-//     expect(addByThree(1)).toBe(4);
-//   });
+    const func = new Function(code);
+    const { addByTwo, subtractByThree } = func();
 
-//   test("exercise 2: Match Action", async () => {
-//     const data = await fs.readFile("./ex-2.js");
-//     const code = `${data} return matchAction`;
+    expect(addByTwo.addByX(1)).toBe(3);
+    expect(addByTwo.addByX(2)).toBe(4);
+    expect(addByTwo.addByX(3)).toBe(5);
 
-//     const func = new Function(code);
-//     const matchAction = func();
-//     const addByTwo = matchAction(2);
-//     const subtractByThree = matchAction(3);
-
-//     expect(addByTwo.addByX(1)).toBe(3);
-//     expect(addByTwo.addByX(2)).toBe(4);
-
-//     expect(subtractByThree.subtractByX(4)).toBe(1);
-//   });
-// });
+    expect(subtractByThree.subtractByX(4)).toBe(1);
+    expect(subtractByThree.subtractByX(6)).toBe(3);
+    expect(subtractByThree.subtractByX(8)).toBe(5);
+  });
+});
