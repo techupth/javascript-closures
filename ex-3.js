@@ -28,6 +28,6 @@ function calculateTotalSales(items) {
   return total;
 }
 
-let total = calculateTotalSale();
+let total = calculateTotalSales();
 
 console.log("Total sales: ", total);
